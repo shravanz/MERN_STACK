@@ -1,0 +1,34 @@
+{
+  "name": "mern_stack",
+  "version": "1.0.0",
+  "description": "A social profile platform for developer to connect",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shravanz/MERN_STACK.git"
+  },
+  "keywords": ["node", "js", "react", "mongodb", "jwt"],
+  "author": "ShravanZolgikar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shravanz/MERN_STACK/issues"
+  },
+  "homepage": "https://github.com/shravanz/MERN_STACK#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.0.14",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^9.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
