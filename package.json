@@ -11,7 +11,13 @@
     "type": "git",
     "url": "git+https://github.com/shravanz/MERN_STACK.git"
   },
-  "keywords": ["node", "js", "react", "mongodb", "jwt"],
+  "keywords": [
+    "node",
+    "js",
+    "react",
+    "mongodb",
+    "jwt"
+  ],
   "author": "ShravanZolgikar",
   "license": "MIT",
   "bugs": {
@@ -22,6 +28,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
+    "gravatar": "^1.6.0",
     "jsonwebtoken": "^8.2.1",
     "mongoose": "^5.0.14",
     "passport": "^0.4.0",

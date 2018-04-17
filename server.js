@@ -1,10 +1,16 @@
 //Module Dependencies
 const express = require("express");
+const bodyParser = require("body-parser");
 const usersAuth = require("./routes/apis/userAuth");
 const profile = require("./routes/apis/profile");
 const posts = require("./routes/apis/posts");
 
 const app = express();
+
+//BodyParser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 const mongoose = require("mongoose");
 
 //DB-Config
