@@ -1,6 +1,7 @@
 //Module Dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
+const passport = require("passport");
 const usersAuth = require("./routes/apis/userAuth");
 const profile = require("./routes/apis/profile");
 const posts = require("./routes/apis/posts");
@@ -24,6 +25,12 @@ mongoose
 
 //A Temporary Route
 app.get("/", (req, res) => res.send(`hello lets get started with MERN_STACK`));
+
+//passport middleware
+app.use(passport.initialize());
+
+//passport config
+require("./config/passport")(passport);
 
 // Use Routes
 app.use("/api/users", usersAuth);
