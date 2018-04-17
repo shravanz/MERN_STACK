@@ -7,6 +7,10 @@ const jwt = require("jsonwebtoken");
 const jwtKey = require("../../config/keys").jwtSecret;
 const passport = require("passport");
 
+// Load Input validation
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
+
 //Importing the user Model
 const User = require("../../model/User");
 // set the routes
@@ -20,9 +24,16 @@ router.get("/test", (req, res) => res.json({ msg: "Users Works" }));
 // @desc    Register users route
 // @access  public
 router.post("/register", (req, res) => {
+  const { errors, isValid } = validateRegisterInput(req.body);
+
+  //check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      return res.status(400).json({ email: "Email Alredy exists" });
+      errors.email = "Email Alredy exists";
+      return res.status(400).json(errors);
     } else {
       //gravatar middleware
       const avatar = gravatar.url(req.body.email, {
@@ -56,6 +67,12 @@ router.post("/register", (req, res) => {
 // @desc    User Login and returning Token
 // @access  public
 router.post("/login", (req, res) => {
+  const { errors, isValid } = validateLoginInput(req.body);
+
+  //check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
   const email = req.body.email;
   const password = req.body.password;
 
